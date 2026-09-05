@@ -1,0 +1,1832 @@
+{
+  "timestamp": "2026-08-24T06:01:23.369Z",
+  "metrics": {
+    "scenariosRun": 50,
+    "taskSuccessRate": 96,
+    "policyComplianceRate": 100,
+    "toolSelectionF1": 0.873,
+    "failureRecoveryRate": 60,
+    "adaptationScore": 95.5
+  },
+  "scenarios": [
+    {
+      "id": "s_01",
+      "name": "Scenario 1: upi failure spike with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 6,
+        "timeframeDays": 20,
+        "budgetCap": 5000000
+      },
+      "anomaly": "upi_failure_spike",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_02",
+      "name": "Scenario 2: aov decline with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "average_order_value",
+        "targetUpliftPercent": 7,
+        "timeframeDays": 25,
+        "budgetCap": 5000000
+      },
+      "anomaly": "aov_decline",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "cart_value_boost"
+    },
+    {
+      "id": "s_03",
+      "name": "Scenario 3: cart abandonment with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "customer_retention",
+        "targetUpliftPercent": 8,
+        "timeframeDays": 30,
+        "budgetCap": 5000000
+      },
+      "anomaly": "cart_abandonment",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "checkout_recovery"
+    },
+    {
+      "id": "s_04",
+      "name": "Scenario 4: none with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 9,
+        "timeframeDays": 15,
+        "budgetCap": 5000000
+      },
+      "anomaly": "none",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_05",
+      "name": "Scenario 5: upi failure spike with none injection (Violates Policy: true)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 10,
+        "timeframeDays": 20,
+        "budgetCap": 400000
+      },
+      "anomaly": "upi_failure_spike",
+      "constraintViolation": true,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments"
+      ],
+      "expectedStrategy": "block"
+    },
+    {
+      "id": "s_06",
+      "name": "Scenario 6: aov decline with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "average_order_value",
+        "targetUpliftPercent": 11,
+        "timeframeDays": 25,
+        "budgetCap": 5000000
+      },
+      "anomaly": "aov_decline",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "cart_value_boost"
+    },
+    {
+      "id": "s_07",
+      "name": "Scenario 7: cart abandonment with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "customer_retention",
+        "targetUpliftPercent": 12,
+        "timeframeDays": 30,
+        "budgetCap": 5000000
+      },
+      "anomaly": "cart_abandonment",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "checkout_recovery"
+    },
+    {
+      "id": "s_08",
+      "name": "Scenario 8: none with timeout injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 13,
+        "timeframeDays": 15,
+        "budgetCap": 5000000
+      },
+      "anomaly": "none",
+      "constraintViolation": false,
+      "failureInjection": "timeout",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_09",
+      "name": "Scenario 9: upi failure spike with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 14,
+        "timeframeDays": 20,
+        "budgetCap": 5000000
+      },
+      "anomaly": "upi_failure_spike",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_10",
+      "name": "Scenario 10: aov decline with none injection (Violates Policy: true)",
+      "goal": {
+        "metric": "average_order_value",
+        "targetUpliftPercent": 5,
+        "timeframeDays": 25,
+        "budgetCap": 400000
+      },
+      "anomaly": "aov_decline",
+      "constraintViolation": true,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments"
+      ],
+      "expectedStrategy": "block"
+    },
+    {
+      "id": "s_11",
+      "name": "Scenario 11: cart abandonment with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "customer_retention",
+        "targetUpliftPercent": 6,
+        "timeframeDays": 30,
+        "budgetCap": 5000000
+      },
+      "anomaly": "cart_abandonment",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "checkout_recovery"
+    },
+    {
+      "id": "s_12",
+      "name": "Scenario 12: none with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 7,
+        "timeframeDays": 15,
+        "budgetCap": 5000000
+      },
+      "anomaly": "none",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_13",
+      "name": "Scenario 13: upi failure spike with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 8,
+        "timeframeDays": 20,
+        "budgetCap": 5000000
+      },
+      "anomaly": "upi_failure_spike",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_14",
+      "name": "Scenario 14: aov decline with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "average_order_value",
+        "targetUpliftPercent": 9,
+        "timeframeDays": 25,
+        "budgetCap": 5000000
+      },
+      "anomaly": "aov_decline",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "cart_value_boost"
+    },
+    {
+      "id": "s_15",
+      "name": "Scenario 15: cart abandonment with none injection (Violates Policy: true)",
+      "goal": {
+        "metric": "customer_retention",
+        "targetUpliftPercent": 10,
+        "timeframeDays": 30,
+        "budgetCap": 400000
+      },
+      "anomaly": "cart_abandonment",
+      "constraintViolation": true,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments"
+      ],
+      "expectedStrategy": "block"
+    },
+    {
+      "id": "s_16",
+      "name": "Scenario 16: none with malformed_response injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 11,
+        "timeframeDays": 15,
+        "budgetCap": 5000000
+      },
+      "anomaly": "none",
+      "constraintViolation": false,
+      "failureInjection": "malformed_response",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_17",
+      "name": "Scenario 17: upi failure spike with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 12,
+        "timeframeDays": 20,
+        "budgetCap": 5000000
+      },
+      "anomaly": "upi_failure_spike",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_18",
+      "name": "Scenario 18: aov decline with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "average_order_value",
+        "targetUpliftPercent": 13,
+        "timeframeDays": 25,
+        "budgetCap": 5000000
+      },
+      "anomaly": "aov_decline",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "cart_value_boost"
+    },
+    {
+      "id": "s_19",
+      "name": "Scenario 19: cart abandonment with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "customer_retention",
+        "targetUpliftPercent": 14,
+        "timeframeDays": 30,
+        "budgetCap": 5000000
+      },
+      "anomaly": "cart_abandonment",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "checkout_recovery"
+    },
+    {
+      "id": "s_20",
+      "name": "Scenario 20: none with none injection (Violates Policy: true)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 5,
+        "timeframeDays": 15,
+        "budgetCap": 400000
+      },
+      "anomaly": "none",
+      "constraintViolation": true,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments"
+      ],
+      "expectedStrategy": "block"
+    },
+    {
+      "id": "s_21",
+      "name": "Scenario 21: upi failure spike with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 6,
+        "timeframeDays": 20,
+        "budgetCap": 5000000
+      },
+      "anomaly": "upi_failure_spike",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_22",
+      "name": "Scenario 22: aov decline with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "average_order_value",
+        "targetUpliftPercent": 7,
+        "timeframeDays": 25,
+        "budgetCap": 5000000
+      },
+      "anomaly": "aov_decline",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "cart_value_boost"
+    },
+    {
+      "id": "s_23",
+      "name": "Scenario 23: cart abandonment with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "customer_retention",
+        "targetUpliftPercent": 8,
+        "timeframeDays": 30,
+        "budgetCap": 5000000
+      },
+      "anomaly": "cart_abandonment",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "checkout_recovery"
+    },
+    {
+      "id": "s_24",
+      "name": "Scenario 24: none with missing_segments injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 9,
+        "timeframeDays": 15,
+        "budgetCap": 5000000
+      },
+      "anomaly": "none",
+      "constraintViolation": false,
+      "failureInjection": "missing_segments",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_25",
+      "name": "Scenario 25: upi failure spike with none injection (Violates Policy: true)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 10,
+        "timeframeDays": 20,
+        "budgetCap": 400000
+      },
+      "anomaly": "upi_failure_spike",
+      "constraintViolation": true,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments"
+      ],
+      "expectedStrategy": "block"
+    },
+    {
+      "id": "s_26",
+      "name": "Scenario 26: aov decline with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "average_order_value",
+        "targetUpliftPercent": 11,
+        "timeframeDays": 25,
+        "budgetCap": 5000000
+      },
+      "anomaly": "aov_decline",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "cart_value_boost"
+    },
+    {
+      "id": "s_27",
+      "name": "Scenario 27: cart abandonment with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "customer_retention",
+        "targetUpliftPercent": 12,
+        "timeframeDays": 30,
+        "budgetCap": 5000000
+      },
+      "anomaly": "cart_abandonment",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "checkout_recovery"
+    },
+    {
+      "id": "s_28",
+      "name": "Scenario 28: none with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 13,
+        "timeframeDays": 15,
+        "budgetCap": 5000000
+      },
+      "anomaly": "none",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_29",
+      "name": "Scenario 29: upi failure spike with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 14,
+        "timeframeDays": 20,
+        "budgetCap": 5000000
+      },
+      "anomaly": "upi_failure_spike",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_30",
+      "name": "Scenario 30: aov decline with none injection (Violates Policy: true)",
+      "goal": {
+        "metric": "average_order_value",
+        "targetUpliftPercent": 5,
+        "timeframeDays": 25,
+        "budgetCap": 400000
+      },
+      "anomaly": "aov_decline",
+      "constraintViolation": true,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments"
+      ],
+      "expectedStrategy": "block"
+    },
+    {
+      "id": "s_31",
+      "name": "Scenario 31: cart abandonment with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "customer_retention",
+        "targetUpliftPercent": 6,
+        "timeframeDays": 30,
+        "budgetCap": 5000000
+      },
+      "anomaly": "cart_abandonment",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "checkout_recovery"
+    },
+    {
+      "id": "s_32",
+      "name": "Scenario 32: none with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 7,
+        "timeframeDays": 15,
+        "budgetCap": 5000000
+      },
+      "anomaly": "none",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_33",
+      "name": "Scenario 33: upi failure spike with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 8,
+        "timeframeDays": 20,
+        "budgetCap": 5000000
+      },
+      "anomaly": "upi_failure_spike",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_34",
+      "name": "Scenario 34: aov decline with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "average_order_value",
+        "targetUpliftPercent": 9,
+        "timeframeDays": 25,
+        "budgetCap": 5000000
+      },
+      "anomaly": "aov_decline",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "cart_value_boost"
+    },
+    {
+      "id": "s_35",
+      "name": "Scenario 35: cart abandonment with none injection (Violates Policy: true)",
+      "goal": {
+        "metric": "customer_retention",
+        "targetUpliftPercent": 10,
+        "timeframeDays": 30,
+        "budgetCap": 400000
+      },
+      "anomaly": "cart_abandonment",
+      "constraintViolation": true,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments"
+      ],
+      "expectedStrategy": "block"
+    },
+    {
+      "id": "s_36",
+      "name": "Scenario 36: none with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 11,
+        "timeframeDays": 15,
+        "budgetCap": 5000000
+      },
+      "anomaly": "none",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_37",
+      "name": "Scenario 37: upi failure spike with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 12,
+        "timeframeDays": 20,
+        "budgetCap": 5000000
+      },
+      "anomaly": "upi_failure_spike",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_38",
+      "name": "Scenario 38: aov decline with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "average_order_value",
+        "targetUpliftPercent": 13,
+        "timeframeDays": 25,
+        "budgetCap": 5000000
+      },
+      "anomaly": "aov_decline",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "cart_value_boost"
+    },
+    {
+      "id": "s_39",
+      "name": "Scenario 39: cart abandonment with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "customer_retention",
+        "targetUpliftPercent": 14,
+        "timeframeDays": 30,
+        "budgetCap": 5000000
+      },
+      "anomaly": "cart_abandonment",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "checkout_recovery"
+    },
+    {
+      "id": "s_40",
+      "name": "Scenario 40: none with timeout injection (Violates Policy: true)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 5,
+        "timeframeDays": 15,
+        "budgetCap": 400000
+      },
+      "anomaly": "none",
+      "constraintViolation": true,
+      "failureInjection": "timeout",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments"
+      ],
+      "expectedStrategy": "block"
+    },
+    {
+      "id": "s_41",
+      "name": "Scenario 41: upi failure spike with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 6,
+        "timeframeDays": 20,
+        "budgetCap": 5000000
+      },
+      "anomaly": "upi_failure_spike",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_42",
+      "name": "Scenario 42: aov decline with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "average_order_value",
+        "targetUpliftPercent": 7,
+        "timeframeDays": 25,
+        "budgetCap": 5000000
+      },
+      "anomaly": "aov_decline",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "cart_value_boost"
+    },
+    {
+      "id": "s_43",
+      "name": "Scenario 43: cart abandonment with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "customer_retention",
+        "targetUpliftPercent": 8,
+        "timeframeDays": 30,
+        "budgetCap": 5000000
+      },
+      "anomaly": "cart_abandonment",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "checkout_recovery"
+    },
+    {
+      "id": "s_44",
+      "name": "Scenario 44: none with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 9,
+        "timeframeDays": 15,
+        "budgetCap": 5000000
+      },
+      "anomaly": "none",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_45",
+      "name": "Scenario 45: upi failure spike with none injection (Violates Policy: true)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 10,
+        "timeframeDays": 20,
+        "budgetCap": 400000
+      },
+      "anomaly": "upi_failure_spike",
+      "constraintViolation": true,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments"
+      ],
+      "expectedStrategy": "block"
+    },
+    {
+      "id": "s_46",
+      "name": "Scenario 46: aov decline with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "average_order_value",
+        "targetUpliftPercent": 11,
+        "timeframeDays": 25,
+        "budgetCap": 5000000
+      },
+      "anomaly": "aov_decline",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "cart_value_boost"
+    },
+    {
+      "id": "s_47",
+      "name": "Scenario 47: cart abandonment with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "customer_retention",
+        "targetUpliftPercent": 12,
+        "timeframeDays": 30,
+        "budgetCap": 5000000
+      },
+      "anomaly": "cart_abandonment",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "checkout_recovery"
+    },
+    {
+      "id": "s_48",
+      "name": "Scenario 48: none with malformed_response injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 13,
+        "timeframeDays": 15,
+        "budgetCap": 5000000
+      },
+      "anomaly": "none",
+      "constraintViolation": false,
+      "failureInjection": "malformed_response",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_49",
+      "name": "Scenario 49: upi failure spike with none injection (Violates Policy: false)",
+      "goal": {
+        "metric": "successful_payments",
+        "targetUpliftPercent": 14,
+        "timeframeDays": 20,
+        "budgetCap": 5000000
+      },
+      "anomaly": "upi_failure_spike",
+      "constraintViolation": false,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "expectedStrategy": "payment_method_fallback"
+    },
+    {
+      "id": "s_50",
+      "name": "Scenario 50: aov decline with none injection (Violates Policy: true)",
+      "goal": {
+        "metric": "average_order_value",
+        "targetUpliftPercent": 5,
+        "timeframeDays": 25,
+        "budgetCap": 400000
+      },
+      "anomaly": "aov_decline",
+      "constraintViolation": true,
+      "failureInjection": "none",
+      "expectedTools": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments"
+      ],
+      "expectedStrategy": "block"
+    }
+  ],
+  "runs": [
+    {
+      "scenarioId": "s_01",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_02",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "cart_value_boost",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_03",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "checkout_recovery",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_04",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_05",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation"
+      ],
+      "strategySelected": "block",
+      "policyBlocked": true,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_06",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "cart_value_boost",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_07",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "checkout_recovery",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_08",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": true,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_09",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_10",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation"
+      ],
+      "strategySelected": "block",
+      "policyBlocked": true,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_11",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "checkout_recovery",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_12",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_13",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_14",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "cart_value_boost",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_15",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation"
+      ],
+      "strategySelected": "block",
+      "policyBlocked": true,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_16",
+      "success": false,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": "Malformed JSON object returned from database query."
+    },
+    {
+      "scenarioId": "s_17",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_18",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "cart_value_boost",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_19",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "checkout_recovery",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_20",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation"
+      ],
+      "strategySelected": "block",
+      "policyBlocked": true,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_21",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_22",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "cart_value_boost",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_23",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "checkout_recovery",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_24",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": true,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_25",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation"
+      ],
+      "strategySelected": "block",
+      "policyBlocked": true,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_26",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "cart_value_boost",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_27",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "checkout_recovery",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_28",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_29",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_30",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation"
+      ],
+      "strategySelected": "block",
+      "policyBlocked": true,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_31",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "checkout_recovery",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_32",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_33",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_34",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "cart_value_boost",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_35",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation"
+      ],
+      "strategySelected": "block",
+      "policyBlocked": true,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_36",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_37",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_38",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "cart_value_boost",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_39",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "checkout_recovery",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_40",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_campaign_history",
+        "run_growth_simulation"
+      ],
+      "strategySelected": "block",
+      "policyBlocked": true,
+      "failureRecovered": true,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_41",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_42",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "cart_value_boost",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_43",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "checkout_recovery",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_44",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_45",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation"
+      ],
+      "strategySelected": "block",
+      "policyBlocked": true,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_46",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "cart_value_boost",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_47",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "checkout_recovery",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_48",
+      "success": false,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": "Malformed JSON object returned from database query."
+    },
+    {
+      "scenarioId": "s_49",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation",
+        "create_razorpay_action"
+      ],
+      "strategySelected": "payment_method_fallback",
+      "policyBlocked": false,
+      "failureRecovered": false,
+      "unexpectedError": null
+    },
+    {
+      "scenarioId": "s_50",
+      "success": true,
+      "toolsCalled": [
+        "get_transaction_metrics",
+        "analyze_payment_failures",
+        "get_customer_segments",
+        "get_campaign_history",
+        "run_growth_simulation"
+      ],
+      "strategySelected": "block",
+      "policyBlocked": true,
+      "failureRecovered": false,
+      "unexpectedError": null
+    }
+  ]
+}
